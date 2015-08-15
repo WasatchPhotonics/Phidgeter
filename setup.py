@@ -4,16 +4,16 @@ except ImportError:
     from distutils.core import setup
 
 config = {
-    'description': 'Wasatch Photonics Board Roaster',
+    'description': 'logging and convenience functions for phidgets',
     'author': 'Nathan Harrington',
-    'url': 'http://github.com',
-    'download_url': 'Where to download it.',
+    'url': 'https://github.com/nharringtonwasatch/Phidgeter',
+    'download_url': 'https://github.com/nharringtonwasatch/Phidgeter',
     'author_email': 'nharrington@wasatchphotonics.com',
     'version': '0.1',
     'install_requires': ['nose'],
-    'packages': ['broaster'],
+    'packages': ['phidgeter'],
     'scripts': [],
-    'name': 'broaster'
+    'name': 'phidgeter'
 }
 
 setup(**config)
