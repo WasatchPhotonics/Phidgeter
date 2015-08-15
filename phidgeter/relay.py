@@ -87,7 +87,7 @@ class Relay(object):
         return result
 
     def zero_on(self):
-        return self.open_operate_close(relay=0, status=0)
+        return self.open_operate_close(relay=0, status=1)
 
     def zero_off(self):
         return self.open_operate_close(relay=0, status=0)
@@ -96,7 +96,7 @@ class Relay(object):
         return self.open_toggle_close(relay=0)
 
     def one_on(self):
-        return self.open_operate_close(relay=1, status=0)
+        return self.open_operate_close(relay=1, status=1)
 
     def one_off(self):
         return self.open_operate_close(relay=1, status=0)
@@ -105,7 +105,7 @@ class Relay(object):
         return self.open_toggle_close(relay=1)
 
     def two_on(self):
-        return self.open_operate_close(relay=2, status=0)
+        return self.open_operate_close(relay=2, status=1)
 
     def two_off(self):
         return self.open_operate_close(relay=2, status=0)
@@ -114,7 +114,7 @@ class Relay(object):
         return self.open_toggle_close(relay=2)
 
     def three_on(self):
-        return self.open_operate_close(relay=3, status=0)
+        return self.open_operate_close(relay=3, status=1)
 
     def three_off(self):
         return self.open_operate_close(relay=3, status=0)
