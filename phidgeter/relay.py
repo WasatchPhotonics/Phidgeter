@@ -53,7 +53,7 @@ class Relay(object):
             self.log.debug("Attempt to open first found")
             self.interface.openPhidget()
 
-        wait_interval = 300
+        wait_interval = 10300
         self.log.debug("Wait for attach %sms" % wait_interval)           
         self.interface.waitForAttach(wait_interval)
   
