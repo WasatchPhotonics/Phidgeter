@@ -79,7 +79,7 @@ class Test(unittest.TestCase):
             (gr, "DEBUG", "Start of phidgeter with serial: None"),
             (gr, "DEBUG", "Attempting to open phidget"),
             (gr, "DEBUG", "Attempt to open first found"),
-            (gr, "DEBUG", "Wait for attach 300ms"),
+            (gr, "DEBUG", "Wait for attach 10300ms"),
             (gr, "INFO", "Opened phidget"),
             (gr, "DEBUG", "Attempting to close phidget"),
             (gr, "INFO", "Closed phidget")
