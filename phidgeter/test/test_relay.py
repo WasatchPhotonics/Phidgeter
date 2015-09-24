@@ -142,9 +142,13 @@ class Test(unittest.TestCase):
         # response of the wmic command. In popen land it is reversed.
         # Mogrify the string to be the end of the deviceid line, and
         # nothing after
-        local_serial = stdout.split("\\")[-1]
-        local_serial = local_serial.split("\r")[0]
-        return local_serial
+        for line in stdout.split("\r"):
+            if "DeviceID=USB" in line:
+                local_serial = line.split("\\")[-1]
+                local_serial = local_serial.split("\r")[0]
+                return local_serial
+
+        return "serial not found"
 
 if __name__ == "__main__":
     unittest.main()
