@@ -10,7 +10,7 @@ config = {
     "download_url": "https://github.com/nharringtonwasatch/Phidgeter",
     "author_email": "nharrington@wasatchphotonics.com",
     "version": "1.0.1",
-    "install_requires": ["nose", "testfixtures", "phidgets"],
+    #"install_requires": ["nose", "testfixtures", "phidgets"],
     "packages": ["phidgeter"],
     "scripts": [],
     "name": "Phidgeter"
