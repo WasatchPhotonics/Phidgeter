@@ -13,10 +13,10 @@ README=""
 CHANGES=""
 
 requires = [
-    "pytest",
-    "pytest-cov",
-    "pytest-qt",
-    "phidgets",
+    #"pytest",
+    #"pytest-cov",
+    #"pytest-qt",
+    #"phidgets",
     ]
 
 setup(name="phidgeter",
