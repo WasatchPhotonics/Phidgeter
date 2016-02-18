@@ -5,10 +5,11 @@ Usage:
 
 Work with relays:
 
-    import phidgeter
-    phd_relay = phidgeter.Relay()
-    phd_relay.toggle_two()
-    phd_relay.one_on()
+    from phidgeter import relay
+
+    phd_relay = relay.Relay()
+    phd_relay.one_toggle()
+    phd_relay.two_on()
 
 Emit data from a Phidget IR sensor on the command line:
    
