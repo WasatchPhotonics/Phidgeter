@@ -24,15 +24,15 @@ Visualize the data with the [BlueGraph] (https://github.com/WasatchPhotonics/Blu
 
 Setup on Fedora Core:
 
-cd ~/Downloads/libphidget*/
-./configure
-sudo make && sudo make install
+    cd ~/Downloads/libphidget*/
+    ./configure
+    sudo make && sudo make install
 
-cd ~/Downloads/PhidgetsPython
-sudo python setup.py install
+    cd ~/Downloads/PhidgetsPython
+    sudo python setup.py install
 
-# Make phidget devices available to all users
-cd ~/Downloads/libphidget/udev/
-sudo cp 99-phidgets.rules /etc/udev/rules.d/
+Make phidget devices available to all users
+    cd ~/Downloads/libphidget/udev/
+    sudo cp 99-phidgets.rules /etc/udev/rules.d/
 
-Unplug and re-plug device.
+    Unplug and re-plug device.
