@@ -19,8 +19,7 @@ Visualize the data with the [BlueGraph] (https://github.com/WasatchPhotonics/Blu
 
     python scripts/TempGraph.py
 
-![BlueGraph Screenshot] (/docs/IR_Temp_BlueGraph.gif "IR Temp BlueGraph screenshot")
-
+![BlueGraph Screenshot](/docs/IR_Temp_BlueGraph.gif "IR Temp BlueGraph screenshot")
 
 Setup on Fedora Core:
 
