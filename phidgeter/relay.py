@@ -4,7 +4,7 @@ Usage:
     rel = Relay()
     rel.zero_on()
     rel.two_toggle()
-    
+
 All connections are made and closed during the operations for that
 relay. The connection is not kept open.
 """
@@ -13,6 +13,7 @@ import logging
 
 from Phidgets.PhidgetException import PhidgetException
 from Phidgets.Devices.InterfaceKit import InterfaceKit
+
 
 class Relay(object):
     """ Relay class wraps language around the 1014_2 -
@@ -35,7 +36,7 @@ class Relay(object):
 
 
     def change_relay(self, relay=0, status=0):
-        """ Toggle the status of the phidget relay line to low(0) or 
+        """ Toggle the status of the phidget relay line to low(0) or
         high(1) status
         """
         self.interface.setOutputState(relay, status)
@@ -54,21 +55,21 @@ class Relay(object):
             self.interface.openPhidget()
 
         wait_interval = 10300
-        self.log.debug("Wait for attach %sms" % wait_interval)           
+        self.log.debug("Wait for attach %sms" % wait_interval)
         self.interface.waitForAttach(wait_interval)
-  
-        self.log.info("Opened phidget") 
+
+        self.log.info("Opened phidget")
         return 1
 
     def close_phidget(self):
         self.log.debug("Attempting to close phidget")
         self.interface.closePhidget()
-        self.log.info("Closed phidget") 
+        self.log.info("Closed phidget")
         return 1
 
-        
 
-    def open_operate_close(self, relay, status): 
+
+    def open_operate_close(self, relay, status):
         """ Open the phidget, change the relay to status, close phidget.
         """
         self.open_phidget()
