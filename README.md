@@ -24,6 +24,8 @@ Visualize the data with the [BlueGraph] (https://github.com/WasatchPhotonics/Blu
 
 Setup on Fedora Core:
 
+    Make sure to use libphidgets-2.1.8 and PhidgetsPython 2.1.8
+
     cd ~/Downloads/libphidget*/
     ./configure
     sudo make && sudo make install

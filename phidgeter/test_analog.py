@@ -2,14 +2,14 @@ import unittest
 import time
 import testfixtures # for log capture
 
-from phidgeter.relay import Relay
+from phidgeter.analog import AnalogOut
 
 class Test(unittest.TestCase):
 
     def setUp(self):
         from testfixtures import LogCapture
         self.log_capture = LogCapture()
-        self.log_group  = 'phidgeter.relay'
+        self.log_group  = 'phidgeter.analog'
         self.lvl = 'DEBUG'
 
     def tearDown(self):
@@ -21,58 +21,24 @@ class Test(unittest.TestCase):
         getLogger().info('a message')
         self.log_capture.check(('root', 'INFO', 'a message'))
 
-    def test_zero_on_off_toggle(self):
-        phd_relay = Relay()
-        result = phd_relay.zero_off()
+    def test_zero_enable(self):
+        phd_analog = AnalogOut()
+        result = phd_analog.zero_disable()
         self.assertTrue(result, "Successfully turned off")
 
-        result = phd_relay.zero_on()
+        result = phd_analog.zero_enable()
         self.assertTrue(result, "Successfully turned off")
 
-        result = phd_relay.zero_toggle()
+        result = phd_analog.zero_toggle()
         self.assertTrue(result, "Successfully toggled")
-
-    def test_one_on_off_toggle(self):
-        phd_relay = Relay()
-        result = phd_relay.one_off()
-        self.assertTrue(result, "Successfully turned off")
-
-        result = phd_relay.one_on()
-        self.assertTrue(result, "Successfully turned off")
-
-        result = phd_relay.one_toggle()
-        self.assertTrue(result, "Successfully toggled")
-
-    def test_two_on_off_toggle(self):
-        phd_relay = Relay()
-        result = phd_relay.two_off()
-        self.assertTrue(result, "Successfully turned off")
-
-        result = phd_relay.two_on()
-        self.assertTrue(result, "Successfully turned off")
-
-        result = phd_relay.two_toggle()
-        self.assertTrue(result, "Successfully toggled")
-
-    def test_three_on_off_toggle(self):
-        phd_relay = Relay()
-        result = phd_relay.three_off()
-        self.assertTrue(result, "Successfully turned off")
-
-        result = phd_relay.three_on()
-        self.assertTrue(result, "Successfully turned off")
-
-        result = phd_relay.three_toggle()
-        self.assertTrue(result, "Successfully toggled")
-
 
     def test_open_phidget(self):
         """ Apparently, LogCapture is setup to compare the entire log
          entries at once. So go through all of the operations, then
          check the total log output at the end.
         """
-        phd = Relay()
-        self.assertTrue(phd.zero_on())
+        phd = AnalogOut()
+        self.assertTrue(phd.zero_enable())
 
         gr = self.log_group
         self.log_capture.check(
@@ -90,8 +56,12 @@ class Test(unittest.TestCase):
         serial = self.find_serial()
 
         # connect to that phidget precisely
-        phd = Relay(serial)
-        self.assertTrue(phd.zero_on())
+        phd = AnalogOut(serial)
+        self.assertTrue(phd.zero_enable())
+
+    def test_two_trigger(self):
+        phd = AnalogOut()
+        self.assertTrue(phd.two_toggle())
 
     def find_serial(self):
         """ On linux only, use pyusb to enumerate all devices connected
