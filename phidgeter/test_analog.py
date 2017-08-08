@@ -32,6 +32,11 @@ class Test(unittest.TestCase):
         result = phd_analog.zero_toggle()
         self.assertTrue(result, "Successfully toggled")
 
+    def test_two_disable(self):
+        phd_analog = AnalogOut()
+        result = phd_analog.two_disable()
+        self.assertTrue(result, "Successfully turned off")
+
     def test_open_phidget(self):
         """ Apparently, LogCapture is setup to compare the entire log
          entries at once. So go through all of the operations, then

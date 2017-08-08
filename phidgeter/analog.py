@@ -92,5 +92,12 @@ class AnalogOut(object):
     def zero_toggle(self):
         return self.open_toggle_close(output=0)
 
+
+    def two_enable(self):
+        return self.open_operate_close(output=2, status=1)
+
+    def two_disable(self):
+        return self.open_operate_close(output=2, status=0)
+
     def two_toggle(self):
         return self.open_toggle_close(output=2)
