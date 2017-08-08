@@ -59,6 +59,10 @@ class Test(unittest.TestCase):
         phd = AnalogOut(serial)
         self.assertTrue(phd.zero_enable())
 
+    def test_two_trigger(self):
+        phd = AnalogOut()
+        self.assertTrue(phd.two_toggle())
+
     def find_serial(self):
         """ On linux only, use pyusb to enumerate all devices connected
         to the bus, return the string from the usb descriptor, which is

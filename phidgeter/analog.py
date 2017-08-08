@@ -78,6 +78,7 @@ class AnalogOut(object):
         """
         self.open_phidget()
         curr_state = self.interface.getEnabled(output)
+        res_volt = self.interface.setVoltage(output, 3.3)
         result = self.change_enable(output, not curr_state)
         self.close_phidget()
         return result
@@ -90,3 +91,6 @@ class AnalogOut(object):
 
     def zero_toggle(self):
         return self.open_toggle_close(output=0)
+
+    def two_toggle(self):
+        return self.open_toggle_close(output=2)
