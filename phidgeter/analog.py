@@ -56,6 +56,37 @@ class AnalogOut(object):
         self.log.info("Closed phidget")
         return 1
 
-    def zero_enable(self):
-        self.log.debug("Attempting to enable zero")
+    def change_enable(self, output=0, status=0):
+        """ Toggle the enable of the phidget analog output line to
+            enable(1) or disable(0) status
+        """
+        self.interface.setEnabled(output, status)
         return 1
+
+    def open_operate_close(self, output, status):
+        """ Open the phidget, change the enable status of the analog
+            output, close phidget.
+        """
+        self.open_phidget()
+        result = self.change_enable(output, status)
+        self.close_phidget()
+        return result
+
+    def open_toggle_close(self, output):
+        """ Find the current enable status of the specified output, and
+            set the status to the opposite.
+        """
+        self.open_phidget()
+        curr_state = self.interface.getEnabled(output)
+        result = self.change_enable(output, not curr_state)
+        self.close_phidget()
+        return result
+
+    def zero_enable(self):
+        return self.open_operate_close(output=0, status=1)
+
+    def zero_disable(self):
+        return self.open_operate_close(output=0, status=0)
+
+    def zero_toggle(self):
+        return self.open_toggle_close(output=0)

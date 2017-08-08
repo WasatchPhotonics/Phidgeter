@@ -23,10 +23,10 @@ class Test(unittest.TestCase):
 
     def test_zero_enable(self):
         phd_analog = AnalogOut()
-        result = phd_analog.zero_off()
+        result = phd_analog.zero_disable()
         self.assertTrue(result, "Successfully turned off")
 
-        result = phd_analog.zero_on()
+        result = phd_analog.zero_enable()
         self.assertTrue(result, "Successfully turned off")
 
         result = phd_analog.zero_toggle()
@@ -56,8 +56,8 @@ class Test(unittest.TestCase):
         serial = self.find_serial()
 
         # connect to that phidget precisely
-        phd = Relay(serial)
-        self.assertTrue(phd.zero_on())
+        phd = AnalogOut(serial)
+        self.assertTrue(phd.zero_enable())
 
     def find_serial(self):
         """ On linux only, use pyusb to enumerate all devices connected
